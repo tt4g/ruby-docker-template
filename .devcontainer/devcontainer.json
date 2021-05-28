@@ -1,0 +1,62 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/docker-existing-docker-compose
+// If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
+{
+    "name": "Existing Docker Compose (Extend)",
+    "dockerComposeFile": [
+        "../docker-compose.yml", // Base.
+        "docker-compose-extend.yml" // For Visual Studio Code.
+    ],
+    "service": "ruby_project_development",
+    "workspaceFolder": "/usr/src/app/",
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "ruby.useBundler": true,
+        "ruby.format": "rubocop",
+        "ruby.lint": {
+            "rubocop": {
+                "useBundler": true
+            },
+        },
+        "ruby.useLanguageServer": true,
+        "ruby.intellisense": "rubyLocate",
+        "[ruby]": {
+            "editor.formatOnSave": true
+        },
+        // For castwide/vscode-solargraph.
+        // https://github.com/castwide/vscode-solargraph
+        "solargraph.useBundler": true,
+        // For connorshea/vscode-ruby-test-adapter.
+        // https://github.com/connorshea/vscode-ruby-test-adapter
+        "rubyTestExplorer.logpanel": true,
+        "rubyTestExplorer.testFramework": "rspec",
+        "rubyTestExplorer.debugCommand": "bundle exec rdebug-ide",
+        "rubyTestExplorer.rspecCommand": "bundle exec rspec",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "bash",
+                "args": [
+                    "-l"
+                ]
+            }
+        }
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+		"rebornix.ruby",
+		"castwide.solargraph",
+		"connorshea.vscode-ruby-test-adapter",
+		"editorconfig.editorconfig"
+	]
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Uncomment the next line if you want start specific services in your Docker Compose config.
+    // "runServices": [],
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+    // Uncomment the next line to run commands after the container is created - for example installing curl.
+    // "postCreateCommand": "apt-get update && apt-get install -y curl",
+    // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+    // "remoteUser": "vscode"
+}

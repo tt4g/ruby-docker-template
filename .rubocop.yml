@@ -1,0 +1,20 @@
+# Remove `inherit_from: .rubocop_todo.yml` if `.rubocop_todo.yml` is empty.
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.0
+  Exclude:
+    - "vendor/**/*"
+
+# Allow non ASCII comment.
+Style/AsciiComments:
+  Enabled: false
+
+# rubocop-performance
+Performance:
+  Exclude:
+    - "**/test/**/*"
