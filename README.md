@@ -45,5 +45,7 @@ Visual Studio Code will not work.
 ## Build release Docker image
 
 ```bash
-$ docker image build -f docker/release/Dockerfile .
+$ docker image build -f docker/release/Dockerfile \
+  -build-arg RUBY_VERSION=3.0.1 \
+  .
 ```

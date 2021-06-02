@@ -1,4 +1,6 @@
-FROM ruby:3.0.1-buster
+ARG RUVY_VERSION=3.0.1
+
+FROM ruby:${RUVY_VERSION}-buster
 
 RUN apt-get update && apt-get install -y \
     # Git for using development.
