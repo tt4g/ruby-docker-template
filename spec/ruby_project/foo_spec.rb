@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ruby_project/ruby_project'
 
 RSpec.describe RubyProject::Foo do
