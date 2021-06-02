@@ -9,7 +9,7 @@ group :production do
 end
 
 group :development do
-    gem "solargraph", "~> 0.40.4", :require => false
+    gem "solargraph", "~> 0.41.1", :require => false
 
     gem "rubocop", "~> 1.16", :require => false
     gem "rubocop-rspec", "~> 2.3", :require => false

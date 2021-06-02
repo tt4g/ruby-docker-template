@@ -60,7 +60,7 @@ GEM
     ruby-debug-ide (0.7.2)
       rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
-    solargraph (0.40.4)
+    solargraph (0.41.1)
       backport (~> 1.1)
       benchmark
       bundler (>= 1.17.2)
@@ -90,7 +90,7 @@ DEPENDENCIES
   rubocop-performance (~> 1.11)
   rubocop-rspec (~> 2.3)
   ruby-debug-ide (~> 0.7.2)
-  solargraph (~> 0.40.4)
+  solargraph (~> 0.41.1)
 
 BUNDLED WITH
    2.2.15
