@@ -47,7 +47,10 @@
 		"rebornix.ruby",
 		"castwide.solargraph",
 		"connorshea.vscode-ruby-test-adapter",
-		"editorconfig.editorconfig"
+		"editorconfig.editorconfig",
+		"oderwat.indent-rainbow",
+		"mosapride.zenkaku",
+		"coenraads.bracket-pair-colorizer-2"
 	]
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
