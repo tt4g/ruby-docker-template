@@ -11,7 +11,7 @@ end
 group :development do
     gem "solargraph", "~> 0.40.4", :require => false
 
-    gem "rubocop", "~> 1.15", :require => false
+    gem "rubocop", "~> 1.16", :require => false
     gem "rubocop-rspec", "~> 2.3", :require => false
     gem "rubocop-performance", "~> 1.11", :require => false
 
