@@ -9,6 +9,38 @@
     ],
     "service": "ruby_project_development",
     "workspaceFolder": "/usr/src/app/",
+    "remoteEnv": {
+        // Docker公式 Ruby イメージでセットされている環境変数`BUNDLE_APP_CONFIG`を削除する。
+        // Visual Studio Code Remote Container は `BUNDLE_APP_CONFIG` が
+        // 環境変数に存在するとVisual Studio Code の設定で `ruby.useBundler: true` が
+        // 指定されているときに`bundler`でインストールされているGemを使用するが、
+        // ワークスペースフォルダー直下に`.bundle/config`の設定を認識されない。
+        // 該当の設定が無視されていると
+        // ローカル設定に`bundle config set --local path "vendor/bundle"`を指定して
+        // `vendor/bundle`にGemをインストールしていても、Visual Studio Codeの拡張機能の
+        // 一部が使用する`rspec`などのGemによって追加されるコマンドが認識されずに
+        // 拡張機能が動作しないといった問題がある。
+        // `Dockerfile`で`ENV BUNDLE_APP_CONFIG=`を記載すると`BUNDLE_APP_CONFIG`は
+        // 空文字定義の環境変数になるが、Visual Studio Code Remote Containerは
+        // `"remoteEnv"`で`"BUNDLE_APP_CONFIG": null`を指定していなければ
+        // `BUNDLE_APP_CONFIG`が存在していると認識する様子。
+        // ここで明示的に`BUNDLE_APP_CONFIG`を`unset`することでワークスペースの
+        // `.bundle/config`と`vendor/bundle`にインストールしたGemを
+        // Visual Studio Codeにも認識させる。
+        // See:
+        //  * https://blog.freedom-man.com/ruby-docker-bundler
+        //  * https://qiita.com/frozenbonito/items/0c515929aba4093e7c47
+        //
+        // NOTE: Docker公式 Ruby イメージは`BUNDLE_APP_CONFIG=/usr/local/bundle`を
+        //  セットしているため、ホストマシンのボリュームをDockerコンテナの`/usr/local/bundle`に
+        //  マウントしていない限り、DockerコンテナのリビルドなどでDockerコンテナが削除される
+        //  たびにコンテナボリュームにインストールされていたGemもすべて削除される。
+        //  開発中はコンテナの作り直しなどが発生しやすいため、
+        //  `bundle config set --local path "vendor/bundle"`で
+        //  ホストボリュームの`vendor/bundle`にGemをインストールすることで
+        //  コンテナを作り直すたびにGemを再インストールする手間を省く。
+        "BUNDLE_APP_CONFIG": null
+    },
     // Set *default* container specific settings.json values on container create.
     "settings": {
         "ruby.useBundler": true,

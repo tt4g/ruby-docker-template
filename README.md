@@ -29,18 +29,29 @@ Another way (Do not use Visual Studio Code), Run the following command.
 $ docker-compose.exe run ruby_project_development /bin/bash -l
 ```
 
-## Setup
+## Setup for development
 
 Install Gem.
 
 ```bash
+$ bundle config set --local path "vendor/bundle"
 $ bundle install
 $ bundle binstubs rspec-core
 ```
 
-**NOTE:** If set the bundle installation path to local with
-`bundle config set --local path "vendor/bundle"`, some extensions of 
-Visual Studio Code will not work.
+**NOTE:** Running the `bundle config set --local path "vendor/bundle"` command
+will install Gem on the host volume, so that Gem does not need to be reinstalled
+when Docker container is rebuilt.
+However, Visual Studio Code may not be able to find the Gem installed in
+`vendor/bundle` with this configuration. In such a case, run
+`bundle config unset --local path` command to remove the configuration and
+install Gem globally. Instead, globally installed Gems in Docker containers will
+have to be installed every time the container is rebuilt.
+
+**NOTE:** Run `bundle binstubs rspec-core` for the purpose of creating
+`bin/rspec` for debugging `rspec` in Visual Studio Code.
+You don't need to run it if you are not debugging using
+[.vscode/launch.json](.vscode/launch.json).
 
 ## Build release Docker image
 
