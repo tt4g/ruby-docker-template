@@ -9,8 +9,9 @@ RUN mkdir -p $APP_DIRECTORY
 WORKDIR $APP_DIRECTORY
 COPY . $APP_DIRECTORY
 
-RUN bundle config set --local path "vendor/bundle" \
-    && bundle config --local frozen 1 \
-    && bundle install --with production
+RUN bundle config --global frozen 1 \
+    && bundle config set --global with production \
+    && bundle config set --global without development test \
+    && bundle install
 
 CMD ["bundle", "exec", "ruby", "main.rb"]
