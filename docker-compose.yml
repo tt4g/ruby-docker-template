@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     working_dir: /usr/src/app/
     volumes:
-      - ./:/usr/src/app/
+      - ./:/usr/src/app/:cached
     env_file: ./docker/development/.env
     ulimits:
       memlock:
