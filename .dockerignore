@@ -1,16 +1,20 @@
-# Config
-.editorconfig
+# Git
+.git
 .gitattributes
 .gitignore
 
-# For development
-docker-compose.yml
+# Config
+.editorconfig
 
 # Docker resources
 docker
 
+# Docker For development
+docker-compose.yml
+
 # Visual Studio Code
 .devcontainer
+.vscode
 .history
 .ionide
 
@@ -20,8 +24,9 @@ docker
 .rubocop_todo.yml
 .rubocop.yml
 .solargraph.yml
-vendor/bundle
 spec
+.rspec
+vendor/bundle
 
 bin
 README.md
