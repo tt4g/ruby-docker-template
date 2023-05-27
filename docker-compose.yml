@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 
 services:
   ruby_project_development:
@@ -15,3 +15,8 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: json-file
+      options:
+        max-file: 3
+        max-size: 1m

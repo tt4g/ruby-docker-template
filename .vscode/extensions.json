@@ -1,6 +1,11 @@
 {
     "recommendations": [
-        "connorshea.vscode-ruby-test-adapter",
-        "rebornix.ruby"
+        "EditorConfig.EditorConfig",
+        "oderwat.indent-rainbow",
+        "mosapride.zenkaku",
+        "kaiwood.endwise",
+        "Shopify.ruby-lsp",
+        "noku.rails-run-spec-vscode",
+        "MateuszDrewniak.ruby-test-runner"
     ]
 }

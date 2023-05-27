@@ -9,17 +9,13 @@ group :production do
 end
 
 group :development do
-    gem "solargraph", "~> 0.41.1", :require => false
+    gem "rubocop", "~> 1.51", :require => false
+    gem "rubocop-rspec", "~> 2.22", :require => false
+    gem "rubocop-performance", "~> 1.18", :require => false
 
-    gem "rubocop", "~> 1.16", :require => false
-    gem "rubocop-rspec", "~> 2.3", :require => false
-    gem "rubocop-performance", "~> 1.11", :require => false
-
-    gem "ruby-debug-ide", "~> 0.7.2"
-    gem "debase", "~> 0.2.4"
-    gem "byebug", "~> 11.1"
+    gem "debug", "~> 1.8"
 end
 
 group :test do
-    gem "rspec", "~> 3.10", :require => false
+    gem "rspec", "~> 3.12", :require => false
 end

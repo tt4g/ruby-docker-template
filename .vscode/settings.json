@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "rubyLsp.rubyVersionManager": "none",
+    "rubyLsp.formatter": "rubocop"
+}

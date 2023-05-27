@@ -57,7 +57,7 @@ You don't need to run it if you are not debugging using
 
 ```bash
 $ docker image build -f docker/release/Dockerfile \
-  --build-arg RUBY_VERSION=3.0.1 \
+  --build-arg RUBY_VERSION=3.2.2 \
   -t ruby_project:0.1.0 \
   .
 ```

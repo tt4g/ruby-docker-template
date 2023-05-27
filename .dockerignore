@@ -23,7 +23,6 @@ docker-compose.yml
 .bundle
 .rubocop_todo.yml
 .rubocop.yml
-.solargraph.yml
 spec
 .rspec
 vendor/bundle

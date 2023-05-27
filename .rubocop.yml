@@ -6,15 +6,26 @@ require:
   - rubocop-performance
 
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  EnabledByDefault: true
+  DisplayCopNames: true
   Exclude:
+    - "Gemfile"
     - "vendor/**/*"
 
 # Allow non ASCII comment.
 Style/AsciiComments:
   Enabled: false
 
+Style/MissingElse:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
 # rubocop-performance
 Performance:
   Exclude:
     - "**/test/**/*"
+    - "**/spec/**/*"

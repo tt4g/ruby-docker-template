@@ -1,6 +1,7 @@
-ARG RUVY_VERSION=3.0.1
+ARG RUVY_VERSION=3.2.2
 
-FROM ruby:${RUVY_VERSION}-buster
+# https://hub.docker.com/_/ruby/
+FROM ruby:${RUVY_VERSION}-bullseye
 
 ENV TZ Asia/Tokyo
 
